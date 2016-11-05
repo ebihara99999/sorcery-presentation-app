@@ -1,5 +1,9 @@
 <h1>New User</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<% if request.path.match(/general_users/) %>
+    <%= render 'general_user_form' %>
+    <%= link_to 'Back', general_users_url %>
+<% else %>
+    <%= render 'admin_form' %>
+    <%= link_to 'Back', admins_url %>
+<% end %>

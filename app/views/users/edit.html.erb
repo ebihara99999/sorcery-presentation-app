@@ -1,6 +1,12 @@
 <h1>Editing User</h1>
 
-<%= render 'form' %>
+<% if request.path.match(/general_users/) %>
+    <%= render 'general_user_form' %>
+    <%= link_to 'Show', @user %> |
+    <%= link_to 'Back', general_user_url %>
+<% else %>
+    <%= render 'admin_form' %>
+    <%= link_to 'Show', @user %> |
+    <%= link_to 'Back', admin_url %>
+<% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

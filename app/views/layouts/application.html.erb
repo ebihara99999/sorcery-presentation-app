@@ -9,10 +9,11 @@
 <body>
 <div id="nav">
   <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "Edit Profile", user_edit_url(current_user) %>
       <%= link_to "Logout", :logout, method: :post %>
   <% else %>
-      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Register General User", new_general_user_url %> |
+      <%= link_to "Register Admin", new_admin_url %> |
       <%= link_to "Login", :login %>
       <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %>
   <% end %>
